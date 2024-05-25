@@ -1,0 +1,187 @@
+/* resources/css/custom.css */
+/* custom.css */
+
+/* مثال على بعض التنسيقات المخصصة */
+body {
+    font-family: "Cairo", sans-serif;
+    background-color: #f8fafc;
+}
+
+
+.auth-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+    position: relative;
+    top: 50px; /* إضافة مسافة من الأعلى */
+}
+
+.auth-title {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.auth-input {
+    width: 100%;
+    padding: 0.75rem 0.75rem 0.75rem 2.5rem; /* تعديل لزيادة المسافة للأيقونة */
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.auth-button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #FF6D57; /* تغيير لون الزر */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.auth-button:hover {
+    background-color: #E65C46; /* لون الزر عند التحويم */
+}
+
+.auth-link {
+    display: block;
+    text-align: center;
+    margin-top: 1rem;
+    color: #FF6D57; /* تغيير لون الرابط */
+}
+
+.input-with-icon .icon {
+    position: absolute;
+    top: 50%;
+    left: 0.75rem;
+    transform: translateY(-50%);
+    background-color: #FFA500; /* Orange color */
+    color: white;
+    border-radius: 50%;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+}
+
+
+:root {
+    --font-size-base: 12px;
+    /* يمكنك تغيير القيمة هنا لتجربة أحجام الخط المختلفة */
+}
+
+.container-custom {
+    max-width: 1280px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.input-with-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-with-icon input {
+    padding-left: 2.5rem; /* Space for the icon */
+    border-radius: 0.5rem; /* Rounded corners */
+}
+
+.input-with-icon .icon {
+    position: absolute;
+    top: 50%;
+    left: 0.75rem;
+    transform: translateY(-50%);
+    background-color: #FFA500; /* Orange color */
+    color: white;
+    border-radius: 50%;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+}
+.flex.items-center.border.border-gray-300.text-gray-600.py-2.px-4.rounded-xl {
+    border-radius: 0.75rem; /* More rounded corners */
+}
+
+.flex.items-center.border.border-gray-300.text-gray-600.py-2.px-4.rounded-xl i {
+    margin-left: 0.5rem; /* Space between icon and text */
+}
+
+/* إعداد الحاوية للأيقونات والنصوص */
+.input-with-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* تنسيق الأيقونات داخل الحقول */
+.input-with-icon .icon {
+    position: absolute;
+    right: 10px; /* Adjusted for RTL, if LTR use left: 10px */
+    color: #888;
+    font-size: 1.2rem;
+}
+
+/* تنسيق الحقول النصية */
+.auth-input {
+    width: 100%;
+    padding: 10px 10px 10px 40px; /* Adjust padding for icon space */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1rem;
+    direction: rtl; /* Ensure right-to-left text direction */
+}
+
+/* تباعد العناصر */
+.input-with-icon + .input-with-icon {
+    margin-top: 1rem; /* Space between input fields */
+}
+
+/* زر التذكير */
+.remember-me {
+    margin-top: 1rem;
+}
+
+/* زر التسجيل */
+.auth-button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #FF6D57;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.auth-button:hover {
+    background-color: #E65C46;
+}
+
+/* روابط النسخ الاحتياطي */
+.links {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.auth-link {
+    color: #FF6D57;
+    text-decoration: none;
+}

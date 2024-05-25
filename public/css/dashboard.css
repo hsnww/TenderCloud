@@ -1,0 +1,161 @@
+body {
+    font-family: 'Cairo', sans-serif;
+    margin: 0 6%;
+    border: 1px solid #dcdcdc; /* إطار رقيق بلون رمادي */
+    font-size: 14px; /* حجم الخط الأساسي للقالب */
+    line-height: 1.6; /* المسافة بين السطور */
+
+}
+
+.header {
+    height: 210px;
+}
+
+.header-top {
+    height: 75px;
+    background-color: #EB4E38;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 20px;
+    color: white;
+}
+
+.header-top .icon-btn {
+    margin-left: 20px;
+    background-color: #FA6F5B;
+    border-radius: 5px;
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+    border: 1px solid white;
+    color: white;
+}
+
+.header-top .icon-btn a {
+    color: white;
+    text-decoration: none;
+}
+
+.header-top .icon-btn i {
+    margin-left: 5px;
+}
+
+.header-top .icon-btn.dropdown .dropdown-menu {
+    right: 0;
+    left: auto;
+    background-color: #ffffff;
+    border: 1px solid #dcdcdc;
+    color: #253D44;
+    border-radius: 0.25rem;
+}
+
+.header-top .icon-btn.dropdown .dropdown-menu .dropdown-item {
+    color: #000000;
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.header-top .icon-btn.dropdown .dropdown-menu .dropdown-item i {
+    margin-left: 0.5rem;
+}
+
+.header-top .icon-btn.dropdown .dropdown-menu .dropdown-item:hover {
+    background-color: #FA6F5B;
+    color: #ffffff;
+}
+
+.header-top .icon-btn.dropdown .dropdown-menu .dropdown-item.logout-item {
+    color: #FF0000;
+}
+
+.header-top .icon-btn.dropdown .dropdown-menu .dropdown-item.logout-item i {
+    color: #FF0000;
+}
+
+.header-bottom {
+    background-color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sidebar {
+    background-color: #FA6F5B;
+    padding: 20px;
+    border: 1px solid #dcdcdc;
+    border-radius: 0.25rem;
+    margin-bottom: 20px; /* Add space between sidebar and footer */
+}
+
+.sidebar .nav-link {
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    background-color: #EB4E38;
+    border-radius: 0.25rem;
+    text-decoration: none;
+}
+
+.sidebar .nav-link i {
+    margin-left: 10px;
+}
+
+.sidebar .nav-link:hover {
+    background-color: #E55642;
+    color: #ffffff;
+}
+
+.footer {
+    background-color: #122D34;
+    color: white;
+}
+.content {
+    border: 1px solid #FA6F5B; /* إطار أحمر باهت */
+    padding: 20px;
+    border-radius: 0.25rem; /* زوايا دائرية قليلاً */
+    background-color: #ffffff; /* خلفية بيضاء */
+}
+
+.footer .footer-top {
+    height: 325px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.footer .footer-top .logo-column {
+    flex: 1;
+    text-align: center;
+}
+
+.footer .footer-bottom {
+    background-color: #EB4E38;
+    height: 95px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    color: white;
+}
+.footer .footer-bottom .social-icons a {
+    margin-left: 10px; /* Adjusted for RTL */
+    color: white;
+    background-color: #FF6A54;
+    padding: 10px;
+    border-radius: 50%;
+}
+/* إخفاء السهم في القائمة المنسدلة */
+.dropdown-toggle::after {
+    display: none;
+}
+
+.separator {
+    border-top: 3px solid #807c7c; /* Make separator more visible */
+    margin: 0;
+}

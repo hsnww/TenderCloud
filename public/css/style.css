@@ -1,0 +1,559 @@
+body {
+    font-family: 'Cairo', sans-serif;
+    margin: 0 6%;
+    border: 1px solid #dcdcdc; /* إطار رقيق بلون رمادي */
+    font-size: 14px; /* حجم الخط الأساسي للقالب */
+    line-height: 1.6; /* المسافة بين السطور */
+}
+
+/* التحكم في خطوط العناوين */
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Cairo", sans-serif;
+    font-weight: bold;
+    line-height: 1.4; /* المسافة بين السطور للعناوين */
+}
+
+h1 {
+    font-size: 1.75rem; /* حجم الخط للعناوين H1 */
+}
+
+h2 {
+    font-size: 1.5rem; /* حجم الخط للعناوين H2 */
+}
+
+h3 {
+    font-size: 1.25rem; /* حجم الخط للعناوين H3 */
+}
+
+h4 {
+    font-size: 1rem; /* حجم الخط للعناوين H4 */
+}
+
+h5 {
+    font-size: 0.875rem; /* حجم الخط للعناوين H5 */
+}
+
+h6 {
+    font-size: 0.825rem; /* حجم الخط للعناوين H6 */
+}
+
+/* تغيير لون رابط "عرض الكل" إلى الأحمر */
+.view-all {
+    color: #ED5E4A;
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: var(--font-size-base);
+}
+
+/* إزالة الإطار من الأسطر */
+.list-group-item {
+    border: none; /* إزالة الإطار */
+}
+
+/* تغيير لون الخلفية والشكل للباج الذي يحتوي على الرقم 9 */
+.badge-red {
+    background-color: #ED5E4A; /* خلفية حمراء */
+    color: #FFFFFF; /* خط أبيض */
+    border-radius: 9999px; /* جعل الزاوية دائرية */
+}
+
+/* تنسيق أيقونة علامة الصح */
+.list-group-item i.far.fa-check-circle {
+    background-color: #EBFDEA; /* خلفية خضراء فاتحة */
+    color: #B1F7AC; /* لون أخضر للأيقونة */
+    border-radius: 50%; /* جعل الأيقونة داخل دائرة */
+    padding: 0.5rem; /* إضافة مساحة داخلية للأيقونة */
+}
+
+.header {
+    height: 210px;
+}
+.header-top {
+    height: 75px;
+    background-color: #EB4E38;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 20px;
+    color: white;
+}
+.header-top .icon-btn {
+    margin-left: 20px; /* Adjusted for RTL */
+    background-color: #FA6F5B;
+    border-radius: 5px;
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+    border: 1px solid white;
+    color: white; /* Ensuring white color */
+}
+.header-top .icon-btn a {
+    color: white; /* Ensuring white color */
+    text-decoration: none;
+}
+.header-top .icon-btn i {
+    margin-left: 5px; /* Adjusted for RTL */
+}
+.header-top .icon-btn.dropdown .dropdown-menu {
+    right: 0;
+    left: auto;
+    background-color: #ffffff; /* خلفية بيضاء */
+}
+
+.header-top .icon-btn.dropdown .dropdown-menu .dropdown-item {
+    color: #000000; /* لون النص أسود */
+}
+
+.header-top .icon-btn.dropdown .dropdown-menu .dropdown-item:hover {
+    background-color: #FA6F5B; /* لون مختلف عند التحويم */
+}
+
+.header-bottom {
+    background-color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header-bottom .nav-link {
+    color: #343a40;
+    position: relative;
+    padding-right: 20px; /* Adjusted for RTL */
+}
+.header-bottom .nav-link:before {
+    content: '\2022';
+    font-weight: bold;
+    position: absolute;
+    right: 0; /* Adjusted for RTL */
+    top: 50%;
+    transform: translateY(-50%);
+}
+.header-bottom .fav-btn {
+    background-color: white;
+    border: 1px solid #9b9393;
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: #9b9393;
+    display: flex;
+    align-items: center;
+}
+.header-bottom .fav-btn i {
+    margin-left: 5px; /* Adjusted for RTL */
+}
+
+.container {
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-right: 6%;
+    padding-left: 6%;
+}
+
+.footer {
+    background-color: #122D34;
+    color: white;
+    font-size: 0.775rem; /* تغيير حجم الخط */
+    line-height: 2.2; /* تقليل المسافة بين الأسطر */
+
+}
+.footer .footer-top {
+    min-height: 325px;
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    text-align: right;
+}
+.footer .footer-top ul {
+    list-style: none;
+    padding: 0;
+}
+.footer .footer-top ul li {
+    margin-bottom: 10px;
+}
+.footer .footer-top ul li a {
+    color: white;
+    text-decoration: none;
+}
+.footer .footer-top ul li a:hover {
+    text-decoration: underline;
+}
+.footer .footer-bottom {
+    background-color: #EB4E38;
+    height: 95px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    color: white;
+}
+.footer .footer-bottom .social-icons a {
+    margin-left: 10px; /* Adjusted for RTL */
+    color: white;
+    background-color: #FF6A54;
+    padding: 10px;
+    border-radius: 50%;
+}
+/* إخفاء السهم في القائمة المنسدلة */
+.dropdown-toggle::after {
+    display: none;
+}
+/* تنسيق العبارة "تم شراء كراسة الشروط" */
+.badge-bought {
+    background-color: #FEF5E5; /* خلفية بلون FEFE5E5 */
+    color: #FDD89D; /* لون النص FDD89D */
+    font-size: 0.80rem; /* تكبير حجم الخط قليلاً */
+    padding: 0.25rem 0.5rem; /* تعديل الحشو الداخلي */
+    border-radius: 99999rem; /* إضافة زوايا دائرية صغيرة */
+    display: inline-block;
+    margin-top: 0.25rem;
+}
+.badge-done {
+    background-color: #FCE5E1; /* خلفية بلون FCE5E1 */
+    color: #F29183; /* لون النص F29183 */
+    font-size: 0.80rem; /* تكبير حجم الخط قليلاً */
+    padding: 0.25rem 0.5rem; /* تعديل الحشو الداخلي */
+    border-radius: 99999rem; /* إضافة زوايا دائرية صغيرة */
+    display: inline-block;
+    margin-top: 0.25rem;
+}
+/* تنسيق حقول البحث */
+.search-form .form-control {
+    border-radius: 1rem; /* انحناء أكثر للزوايا */
+    border: 1px solid #FFFFFF; /* إطار باللون الأبيض */
+    background-color: #E55642; /* خلفية الحقل باللون E55642 */
+    color: #FFFFFF; /* لون الخط داخل الحقل باللون الأبيض */
+    font-size: 0.65rem;
+
+}
+
+/* التأكد من أن لون النص داخل الحقول البيضاء */
+.search-form .form-control::placeholder {
+    color: #FFFFFF; /* لون النص في placeholder */
+
+}
+/* تنسيق زر التنفيذ */
+.search-button {
+    background-color: #F07665;
+    border: 2px solid #F07665;
+    transition: all 0.3s ease;
+    width: 100%;
+    font-size: 0.95rem;
+    color: #FFFFFF; /* اللون الافتراضي للنص */
+    border-radius: 1rem; /* انحناء أكثر للزوايا */
+
+}
+
+/* تغيير لون الزر والنص عند الإشارة إليه */
+.search-button:hover {
+    background-color: #FFFFFF;
+    color: #F07665; /* تغيير لون النص إلى الأحمر عند الإشارة */
+}
+
+/* تنسيق أيقونات وسائل التواصل الاجتماعي */
+.footer-bottom .social-icons a {
+    display: inline-block;
+    width: 40px; /* عرض الدائرة */
+    height: 40px; /* ارتفاع الدائرة ليكون مساوياً للعرض */
+    line-height: 25px; /* جعل الأيقونة في الوسط رأسياً */
+    text-align: center; /* جعل الأيقونة في الوسط أفقياً */
+    margin-left: 5px; /* المسافة بين الأيقونات */
+    color: white; /* لون الأيقونة */
+    background-color: #FF6A54; /* لون الخلفية */
+    border-radius: 50%; /* جعل الأيقونات داخل دوائر */
+    font-size: 1.2rem;
+}
+
+/* تنسيق القوائم المنسدلة */
+.header-top .dropdown-menu {
+    background-color: #ffffff; /* خلفية بيضاء */
+    border: 1px solid #dcdcdc; /* إضافة حدود رمادية خفيفة */
+    color: #253D44;
+    border-radius: 0.25rem; /* زوايا دائرية خفيفة */
+}
+
+/* تنسيق عناصر القوائم المنسدلة */
+.header-top .dropdown-item {
+    color: #000000; /* لون النص أسود */
+    padding: 0.5rem 1rem; /* حشوة داخلية للعناصر */
+    display: flex;
+    align-items: center;
+}
+
+/* إضافة أيقونات للعناصر */
+.header-top .dropdown-item i {
+    margin-left: 0.5rem; /* مسافة بين الأيقونة والنص */
+}
+
+/* فصل العناصر بخط رمادي */
+.header-top .dropdown-item + .dropdown-item {
+    border-top: 1px solid #dcdcdc; /* خط رمادي بين العناصر */
+}
+
+/* تمييز عنصر تسجيل الخروج */
+.header-top .dropdown-item.logout-item {
+    color: #FF0000; /* لون النص أحمر */
+}
+
+/* تمييز أيقونة تسجيل الخروج */
+.header-top .dropdown-item.logout-item i {
+    color: #FF0000; /* لون الأيقونة أحمر */
+}
+
+
+/* تغيير لون وحجم النقاط في القائمة */
+.nav-link:before {
+    content: '\2022';
+    color: #EB4E38; /* لون النقاط أحمر */
+    font-size: 1.5rem; /* تكبير حجم النقاط بدرجة */
+    font-weight: bold;
+    position: absolute;
+    right: -20px; /* Adjusted for RTL */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* تنسيق القائمة المنسدلة */
+.nav .dropdown {
+    position: relative;
+}
+
+.nav .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #EB4E38; /* خلفية حمراء */
+    border-radius: 0.25rem;
+    z-index: 1000;
+    padding: 10px 0;
+}
+
+.nav .dropdown-menu:before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    right: 10px;
+    border-width: 0 10px 10px 10px;
+    border-style: solid;
+    border-color: transparent transparent #EB4E38 transparent; /* نتوء كالسهم يشير إلى العنصر المنبثقة منه */
+}
+
+.nav .dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.nav .dropdown-menu .dropdown-item {
+    color: #ffffff; /* لون النص أبيض */
+    padding: 10px 20px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+/* تغيير الخلفية عند الإشارة إلى العنصر */
+.nav .dropdown-menu .dropdown-item:hover {
+    background-color: #FA6F5B; /* خلفية برتقالية فاتحة */
+    color: #ffffff; /* لون النص يبقى أبيض */
+}
+
+.nav .dropdown-menu .dropdown-item:before {
+    content: '\2022';
+    color: #ffffff; /* لون النقاط أبيض */
+    font-size: 1rem; /* حجم النقاط */
+    font-weight: bold;
+    margin-left: 10px; /* Adjusted for RTL */
+}
+
+
+.search-form {
+    background-color: #ED5E4A;
+    border-radius: 2.5rem;
+}
+
+.search-input {
+    background-color: #E55642;
+    border: 1px solid #FFFFFF;
+    color: #FFFFFF;
+    font-size: var(--font-size-base);
+}
+
+.search-input::placeholder {
+    color: #FFFFFF;
+    /* لون النص في placeholder */
+}
+
+.search-select {
+    background-color: #E55642;
+    border: 1px solid #FFFFFF;
+    color: #FFFFFF;
+    font-size: var(--font-size-base);
+}
+
+.search-select::placeholder {
+    color: #FFFFFF;
+    /* لون النص في placeholder */
+}
+
+.search-button {
+    background-color: #F07665;
+    border: 2px solid #F07665;
+    transition: all 0.3s ease;
+    width: 100%;
+    /* جعل الزر يأخذ عرض القوائم المنسدلة بالكامل */
+    font-size: var(--font-size-base);
+}
+
+.search-button:hover {
+    background-color: #FFFFFF;
+    color: #F07665;
+}
+
+.widget {
+    border: 1px solid #D1D5DB;
+    border-radius: 2.5rem;
+    background-color: #FFFFFF;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    font-size: var(--font-size-base);
+}
+
+.widget-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.widget-header h2 {
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    font-size: var(--font-size-base);
+}
+
+.badge {
+    background-color: #ED5E4A;
+    color: #FFFFFF;
+    border-radius: 9999px;
+    padding: 0.25rem 0.5rem;
+    margin-right: 0.5rem;
+    font-size: calc(var(--font-size-base) * 0.75);
+}
+
+.notification,
+.favorite,
+.project {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    font-size: var(--font-size-base);
+}
+
+.notification-icon,
+.favorite-icon,
+.project-icon {
+    background-color: #EBFDEA;
+    border-radius: 9999px;
+    padding: 0.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.notification-content,
+.favorite-content,
+.project-content {
+    flex: 1;
+    margin-right: 0.5rem;
+    font-size: var(--font-size-base);
+}
+
+.notification-title,
+.favorite-title,
+.project-title {
+    color: #4B5563;
+    font-weight: bold;
+    font-size: var(--font-size-base);
+}
+
+.notification-date,
+.favorite-date,
+.project-date {
+    color: #9CA3AF;
+    font-size: calc(var(--font-size-base) * 0.875);
+}
+
+.favorite-options,
+.project-options {
+    position: relative;
+}
+
+.favorite-options .dropdown-menu,
+.project-options .dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background-color: white;
+    border: 1px solid #D1D5DB;
+    border-radius: 0.25rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+
+.favorite-options:hover .dropdown-menu,
+.project-options:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    color: #4B5563;
+    font-size: var(--font-size-base);
+}
+
+.dropdown-menu a:hover {
+    background-color: #F3F4F6;
+}
+
+.badge-small {
+    background-color: #FEF5E5;
+    color: #FCCF88;
+    border-radius: 9999px;
+    padding: 0.25rem 0.5rem;
+    font-size: var(--font-size-base);
+    display: inline-block;
+    margin-top: 0.25rem;
+}
+
+.badge-secondary {
+    background-color: #FCE5E1;
+    color: #EC5843;
+    border-radius: 9999px;
+    padding: 0.25rem 0.5rem;
+    font-size: var(--font-size-base);
+    display: inline-block;
+    margin-top: 0.25rem;
+    margin-left: 0.5rem;
+}
+/* تنسيقات الفوتر */
+
+
+footer .container-custom {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+}
+
+footer .container-custom span {
+    font-size: 0.775rem; /* تغيير حجم الخط */
+    line-height: 2.2; /* تقليل المسافة بين الأسطر */
+}
+
+footer .container-custom .flex a {
+    font-size: 0.775rem; /* تغيير حجم الخط */
+    margin-left: 0.5rem;
+    line-height: 2.2; /* تقليل المسافة بين الأسطر */
+}
