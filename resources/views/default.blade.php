@@ -19,31 +19,25 @@
                         <div class="mb-4">
                             <label for="entity">الجهة</label>
                             <select id="entity" name="entity" class="form-control">
-                                <option value="entity1">الجهة 1</option>
-                                <option value="entity2">الجهة 2</option>
-                                <option value="entity3">الجهة 3</option>
-                                <option value="entity4">الجهة 4</option>
-                                <option value="entity5">الجهة 5</option>
+                                @foreach($companies as $company)
+                                <option value="entity1">{{ $company->name }}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div class="mb-4">
                             <label for="activity">النشاط</label>
                             <select id="activity" name="activity" class="form-control">
-                                <option value="activity1">النشاط 1</option>
-                                <option value="activity2">النشاط 2</option>
-                                <option value="activity3">النشاط 3</option>
-                                <option value="activity4">النشاط 4</option>
-                                <option value="activity5">النشاط 5</option>
+                                @foreach($activities as $activity)
+                                <option value="activity1">{{ $activity->name }}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div class="mb-4">
                             <label for="project_type">نوع المشروع</label>
                             <select id="project_type" name="project_type" class="form-control">
-                                <option value="type1">نوع المشروع 1</option>
-                                <option value="type2">نوع المشروع 2</option>
-                                <option value="type3">نوع المشروع 3</option>
-                                <option value="type4">نوع المشروع 4</option>
-                                <option value="type5">نوع المشروع 5</option>
+                                @foreach($projects_types as $project_type)
+                                <option value="type1">{{ $project_type->name }}</option>
+                                @endforeach
                             </select>
                         </div>
                         <button type="submit" class="p-2 rounded-md flex items-center justify-center search-button">
@@ -54,212 +48,33 @@
             </div>
 
             <!-- العمود الثاني: ودجت الإشعارات وودجت المفضلة -->
-            <div class="col-md-4 mb-4">
+            <div class="col-md-8 mb-4">
                 <div class="widget mb-4">
                     <div class="widget-header d-flex justify-content-between align-items-center">
-                        <h2 class="h4">الإشعارات <span class="badge badge-red">9</span></h2>
+                        <p class="h2">المناقصات الجديدة </p>
                         <a href="" class="view-all">عرض الكل</a>
                     </div>
                     <div class="list-group">
                         <!-- تكرار الإشعارات -->
+                        @foreach($tenders as $tender)
                         <div class="list-group-item list-group-item-action d-flex align-items-center">
-                            <i class="far fa-check-circle text-success mr-3"></i>
                             <div>
-                                <div>عنوان الإشعار 1</div>
-                                <small class="text-muted">2023-01-01</small>
-                            </div>
-                        </div>
-                        <div class="list-group-item list-group-item-action d-flex align-items-center">
-                            <i class="far fa-check-circle text-success mr-3"></i>
-                            <div>
-                                <div>عنوان الإشعار 1</div>
-                                <small class="text-muted">2023-01-01</small>
-                            </div>
-                        </div>
-                        <div class="list-group-item list-group-item-action d-flex align-items-center">
-                            <i class="far fa-check-circle text-success mr-3"></i>
-                            <div>
-                                <div>عنوان الإشعار 1</div>
-                                <small class="text-muted">2023-01-01</small>
-                            </div>
-                        </div>
-                        <div class="list-group-item list-group-item-action d-flex align-items-center">
-                            <i class="far fa-check-circle text-success mr-3"></i>
-                            <div>
-                                <div>عنوان الإشعار 1</div>
-                                <small class="text-muted">2023-01-01</small>
-                            </div>
-                        </div>
-                        <div class="list-group-item list-group-item-action d-flex align-items-center">
-                            <i class="far fa-check-circle text-success mr-3"></i>
-                            <div>
-                                <div>عنوان الإشعار 1</div>
-                                <small class="text-muted">2023-01-01</small>
-                            </div>
-                        </div>
-                        <!-- تكرار العناصر الأخرى حسب الحاجة -->
-                    </div>
-                </div>
-                <div class="widget">
-                    <div class="widget-header d-flex justify-content-between align-items-center">
-                        <h2 class="h4">المفضلة <span class="badge badge-red">13</span></h2>
-                        <span class="view-all">عرض الكل</span>
-                    </div>
-                    <div class="list-group">
-                        <!-- تكرار المفضلات -->
-                        <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                            <div>عنوان المفضلة 1</div>
-                            <div class="dropdown">
-                                <i class="fas fa-ellipsis-v dropdown-toggle" data-toggle="dropdown"></i>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="#">مشاهدة</a>
-                                    <a class="dropdown-item" href="#">إزالة</a>
+                                <div><h3>{{ $tender->name }}</h3></div>
+                                <p>{{ $tender->description }}</p>
+                                <p>{{ $tender->company? $tender->company->name : 'لا يوجد اسم'}}</p>
+                                <h4 class="badge bg-secondary">تاريخ طرح المناقصة : {{ $tender->submission_deadline }}</h4>
+                                 <p class="badge bg-danger">تاريخ فتح المظاريف: {{ $tender->opening_date }}</p>
+                                <div>
+                                    <a href="{{ $tender->id }}" class="btn btn-warning vtn-sm">التفاصيل</a>
                                 </div>
                             </div>
                         </div>
-                        <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                            <div>عنوان المفضلة 1</div>
-                            <div class="dropdown">
-                                <i class="fas fa-ellipsis-v dropdown-toggle" data-toggle="dropdown"></i>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="#">مشاهدة</a>
-                                    <a class="dropdown-item" href="#">إزالة</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                            <div>عنوان المفضلة 1</div>
-                            <div class="dropdown">
-                                <i class="fas fa-ellipsis-v dropdown-toggle" data-toggle="dropdown"></i>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="#">مشاهدة</a>
-                                    <a class="dropdown-item" href="#">إزالة</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                            <div>عنوان المفضلة 1</div>
-                            <div class="dropdown">
-                                <i class="fas fa-ellipsis-v dropdown-toggle" data-toggle="dropdown"></i>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="#">مشاهدة</a>
-                                    <a class="dropdown-item" href="#">إزالة</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                            <div>عنوان المفضلة 1</div>
-                            <div class="dropdown">
-                                <i class="fas fa-ellipsis-v dropdown-toggle" data-toggle="dropdown"></i>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="#">مشاهدة</a>
-                                    <a class="dropdown-item" href="#">إزالة</a>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                         <!-- تكرار العناصر الأخرى حسب الحاجة -->
                     </div>
                 </div>
             </div>
 
-            <!-- العمود الثالث: ودجت مشاريعي -->
-            <div class="col-md-4 mb-4">
-                <div class="widget">
-                    <div class="widget-header d-flex justify-content-between align-items-center">
-                        <h2 class="h4">مشاريعي <span class="badge badge-red">5</span></h2>
-                        <span class="view-all">عرض الكل</span>
-                    </div>
-                    <div class="list-group">
-                        <!-- تكرار المشاريع -->
-                        <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                            <div>
-                                <div>عنوان المشروع 1</div>
-                                <small class="badge-bought">تم شراء كراسة الشروط</small>
-                                <!-- شرط إضافي -->
-                                <small class="badge-done">تم تقديم العرض</small>
-                            </div>
-                            <div class="dropdown">
-                                <i class="fas fa-ellipsis-v dropdown-toggle" data-toggle="dropdown"></i>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="#">مشاهدة</a>
-                                    <a class="dropdown-item" href="#">إزالة</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                            <div>
-                                <div>عنوان المشروع 1</div>
-                                <small class="badge-bought">تم شراء كراسة الشروط</small>
-                                <!-- شرط إضافي -->
-                            </div>
-                            <div class="dropdown">
-                                <i class="fas fa-ellipsis-v dropdown-toggle" data-toggle="dropdown"></i>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="#">مشاهدة</a>
-                                    <a class="dropdown-item" href="#">إزالة</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                            <div>
-                                <div>عنوان المشروع 1</div>
-                                <small class="badge-bought">تم شراء كراسة الشروط</small>
-                                <!-- شرط إضافي -->
-                            </div>
-                            <div class="dropdown">
-                                <i class="fas fa-ellipsis-v dropdown-toggle" data-toggle="dropdown"></i>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="#">مشاهدة</a>
-                                    <a class="dropdown-item" href="#">إزالة</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                            <div>
-                                <div>عنوان المشروع 1</div>
-                                <small class="badge-bought">تم شراء كراسة الشروط</small>
-                                <!-- شرط إضافي -->
-                            </div>
-                            <div class="dropdown">
-                                <i class="fas fa-ellipsis-v dropdown-toggle" data-toggle="dropdown"></i>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="#">مشاهدة</a>
-                                    <a class="dropdown-item" href="#">إزالة</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                            <div>
-                                <div>عنوان المشروع 1</div>
-                                <small class="badge-bought">تم شراء كراسة الشروط</small>
-                                <!-- شرط إضافي -->
-                            </div>
-                            <div class="dropdown">
-                                <i class="fas fa-ellipsis-v dropdown-toggle" data-toggle="dropdown"></i>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="#">مشاهدة</a>
-                                    <a class="dropdown-item" href="#">إزالة</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                            <div>
-                                <div>عنوان المشروع 1</div>
-                                <small class="badge-bought">تم شراء كراسة الشروط</small>
-                                <!-- شرط إضافي -->
-                            </div>
-                            <div class="dropdown">
-                                <i class="fas fa-ellipsis-v dropdown-toggle" data-toggle="dropdown"></i>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="#">مشاهدة</a>
-                                    <a class="dropdown-item" href="#">إزالة</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- تكرار العناصر الأخرى حسب الحاجة -->
-                    </div>
-                </div>
-            </div>
         </div>
 
     </div>

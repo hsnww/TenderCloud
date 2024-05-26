@@ -28,6 +28,12 @@
         </div>
 
         <div class="input-with-icon">
+{{--            <i class="fas fa-envelope icon"></i>--}}
+            <input type="text" id="mobile" name="mobile" class="auth-input" value="{{ old('mobile') }}" placeholder="رقم الجوال" required>
+            <small>ابدأ بالرمز الدولي 966</small>
+        </div>
+
+        <div class="input-with-icon">
 {{--            <i class="fas fa-lock icon"></i>--}}
             <input type="password" id="password" name="password" class="auth-input" placeholder="كلمة المرور" required>
         </div>

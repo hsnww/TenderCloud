@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('projects', function (Blueprint $table) {
+        Schema::create('tenders', function (Blueprint $table) {
             $table->id();
             $table->foreignId('creator_id')->constrained('companies')->onDelete('cascade'); // إضافة حقل creator_id وربطه بجدول الشركات
             $table->string('name');
@@ -25,12 +25,11 @@ return new class extends Migration
         });
     }
 
-
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('projects');
+        Schema::dropIfExists('tenders');
     }
 };

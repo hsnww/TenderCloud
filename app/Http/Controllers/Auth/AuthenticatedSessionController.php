@@ -24,11 +24,33 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request): RedirectResponse
     {
+//        $request->authenticate();
+//
+//        $request->session()->regenerate();
+//
+//        return redirect()->intended(route('dashboard', absolute: false));
         $request->authenticate();
 
         $request->session()->regenerate();
 
-        return redirect()->intended(route('dashboard', absolute: false));
+        // توجيه المستخدم بناءً على دوره
+        $user = $request->user();
+
+        if ($user->hasRole('administrator')) {
+            return redirect()->intended('/admin');
+        }
+
+        if ($user->hasRole('company_member')) {
+            return redirect()->intended('/companies');
+        }
+
+        if ($user->hasRole('vendor_member')) {
+            return redirect()->intended('/vendors');
+        }
+
+        // توجيه المستخدمين العامين أو بدون دور محدد إلى لوحة التحكم العامة
+        return redirect()->intended('/dashboard');
+
     }
 
     /**

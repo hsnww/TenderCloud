@@ -11,11 +11,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('project_awards', function (Blueprint $table) {
+        Schema::create('activities', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('company_id')->constrained('companies')->onDelete('cascade');
-            $table->foreignId('project_id')->constrained()->onDelete('cascade');
-            $table->foreignId('contractor_id')->constrained('contractors')->onDelete('cascade');
+            $table->string('name')->unique();
             $table->timestamps();
         });
     }
@@ -25,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('project_awards');
+        Schema::dropIfExists('activities');
     }
 };
