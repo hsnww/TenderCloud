@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.rtl.min.css" integrity="sha384-gXt9imSW0VcJVHezoNQsP+TNrjYXoGcrqBZJpry9zJt8PCQjobwmhMGaDHTASo9N" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
+    @yield('extra-head')
 </head>
 <body>
 <div class="header">
@@ -21,7 +22,7 @@
                 <a class="dropdown-item logout-item" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                     <i class="fas fa-sign-out-alt"></i> تسجيل الخروج
                 </a>
-                <form id="logout-form" action="http://127.0.0.1:8000/logout" method="POST" class="d-none">
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                     @csrf
                 </form>
             </div>
@@ -40,7 +41,7 @@
         </div>
     </div>
     <div class="header-bottom">
-        <img src="images/logo.png" alt="Logo">
+        <img src="{{ asset('images/logo.png') }}" alt="Logo">
     </div>
 </div>
 
@@ -50,20 +51,56 @@
     <div class="row">
         <div class="col-md-3">
             <div class="sidebar">
+                {{-- كل الأدوار --}}
                 <a class="nav-link" href="{{ url('/') }}"><i class="fas fa-home"></i> الرئيسية</a>
-                <a class="nav-link" href="#"><i class="fas fa-tachometer-alt"></i> لوحة التحكم</a>
-                <a class="nav-link" href="#"><i class="fas fa-cog"></i> الإعدادات</a>
-                <a class="nav-link" href="#"><i class="fas fa-cogs"></i> إعدادات حساب الشركة</a>
-                <a class="nav-link" href="#"><i class="fas fa-credit-card"></i> الباقة والدفع</a>
-                <a class="nav-link" href="#"><i class="fas fa-file-invoice"></i> الفواتير</a>
-                <a class="nav-link" href="#"><i class="fas fa-folder-open"></i> المشاريع</a>
+                <hr class="text-danger">
+                {{-- أدمن --}}
+                @role('administrator')
+                <a class="nav-link" href="{{ url('/admin') }}"><i class="fas fa-cogs"></i> إدارة المنصة</a>
+                <a class="nav-link" href="#"><i class="fas fa-sliders-h"></i> إعدادات النظام</a>
+                <a class="nav-link" href="{{ route('admin.users.index') }}"><i class="fas fa-users"></i> إدارة الأعضاء</a>
+                <a class="nav-link" href="{{ route('admin.companies.index') }}"><i class="fas fa-building"></i> إدارة الشركات</a>
+                <a class="nav-link" href="{{ route('admin.vendors.index') }}"><i class="fas fa-briefcase"></i> إدارة مزودي الخدمات</a>
+                <a class="nav-link" href="{{ route('admin.tenders.index') }}"><i class="fas fa-file-contract"></i> إدارة المناقصات</a>
+                <a class="nav-link" href="#"><i class="fas fa-user-shield"></i> إدارة الأدوار</a>
+                <a class="nav-link" href="#"><i class="fas fa-lock"></i> إدارة الصلاحيات</a>
+                <hr class="text-danger">
+                @endrole
+
+                {{-- شركات --}}
+                @role('company_member')
+                <a class="nav-link" href="{{ url('/companies') }}"><i class="fas fa-cogs"></i> تحكم الشركات</a>
+                <a class="nav-link" href="{{ route('companies.edit') }}"><i class="fas fa-building"></i> إعدادات حساب الشركة</a>
+{{--                <a class="nav-link" href="#"><i class="fas fa-credit-card"></i> الباقة والدفع</a>--}}
+                <a class="nav-link" href="{{ route('tenders.index') }}"><i class="fas fa-file-alt"></i> المناقصات </a>
+                <a class="nav-link" href="#"><i class="fas fa-file-invoice"></i> عروض مزودي الخدمات</a>
+{{--                <a class="nav-link" href="#"><i class="fas fa-file-invoice"></i> الفواتير</a>--}}
                 <a class="nav-link" href="#"><i class="fas fa-users"></i> المسؤولين</a>
+                <hr class="text-danger">
+                @endrole
+
+                {{-- مزود الخدمات --}}
+                @role('vendor_member')
+                <a class="nav-link" href="{{ url('/vendors') }}"><i class="fas fa-cogs"></i>تحكم مزود الخدمة</a>
+                <a class="nav-link" href="{{ route('vendors.edit') }}"><i class="fas fa-building"></i> إعدادات حساب الشركة</a>
+                <a class="nav-link" href="#"><i class="fas fa-file-alt"></i> المناقصات</a>
+                <a class="nav-link" href="#"><i class="fas fa-credit-card"></i> الباقة والدفع</a>
+                <a class="nav-link" href="#"><i class="fas fa-envelope-open"></i> دعوات التأهيل</a>
+                <a class="nav-link" href="#"><i class="fas fa-heart"></i> المفضلة</a>
+                <a class="nav-link" href="#"><i class="fas fa-file-invoice"></i> الفواتير</a>
+                <a class="nav-link" href="#"><i class="fas fa-users"></i> المسؤولين</a>
+                <hr class="text-danger">
+                @endrole
+
+                {{-- كل الأدوار --}}
                 <a class="nav-link" href="#"><i class="fas fa-envelope"></i> الرسائل</a>
+                <a class="nav-link" href="#"><i class="fas fa-bell"></i> التنبيهات</a>
                 <a class="nav-link" href="#"><i class="fas fa-headset"></i> الدعم الفني</a>
             </div>
         </div>
         <div class="col-md-9">
-            <div class="content">
+            <div class="border border-danger m-2 p-2">
+                @include('components.alerts')
                @yield('content')
             </div>
         </div>
@@ -72,7 +109,7 @@
 <div class="footer">
     <div class="footer-top">
         <div class="logo-column">
-            <img src="images/logo-light.png" alt="Logo">
+            <img src="{{ asset('images/logo-light.png') }}" alt="Logo">
             <p>تندر كلاود هي منصة تتيح للشركات تقديم العروض والمناقصات بفعالية وسهولة.</p>
         </div>
     </div>
@@ -91,3 +128,5 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
+
+

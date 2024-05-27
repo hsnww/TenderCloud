@@ -2,14 +2,15 @@
 
 namespace App\Models;
 
- use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
-    use HasFactory, Notifiable;
+    use HasFactory, Notifiable, HasRoles;
 
     /**
      * The attributes that are mass assignable.
@@ -46,14 +47,20 @@ class User extends Authenticatable implements MustVerifyEmail
         ];
     }
 
+    public function companies()
+    {
+        return $this->belongsToMany(Company::class, 'user_company_vendor');
+    }
+
+    public function vendors()
+    {
+        return $this->belongsToMany(Vendor::class, 'user_company_vendor');
+    }
+
     public function company()
     {
         return $this->belongsTo(Company::class);
     }
 
-    public function vendor()
-    {
-        return $this->belongsTo(Vendor::class);
-    }
 
 }

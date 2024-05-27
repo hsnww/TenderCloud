@@ -1,17 +1,8 @@
 @extends('layouts.dashboard')
 
 @section('content')
-    <div class="row">
-        <div class="col-12">
-            <h2 class="text-start m-3">إدارة حساب مزودي الخدمات</h2>
-            <p class="text-start m-3">منطقة مدير حساب مزودي الخدمات .. يجب أن تملك صلاحيات Vendors members</p>
-        </div>
-        <div class="col-12">
-            <hr class="text-danger mx-auto" style="width: 75%">
-        </div>
-        <div class="col-12">
-
-        <h1>بيانات مزود الخدمة</h1>
+    <div class="container">
+        <h1>Vendor Details</h1>
         @if($vendor)
             <table class="table">
                 <tr>
@@ -51,11 +42,9 @@
                     <td>{{ $vendor->established_at }}</td>
                 </tr>
             </table>
-
-            <a href="{{ route('vendors.edit') }}" class="btn btn-primary col-3">Edit Vendor</a>
+            <a href="{{ route('vendor.edit') }}" class="btn btn-primary">Edit Vendor</a>
         @else
             <p>No vendor information available.</p>
         @endif
-        </div>
     </div>
 @endsection
