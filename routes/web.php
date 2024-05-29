@@ -16,6 +16,9 @@ use App\Http\Controllers\Admin\TendersController as AdminTendersController;
 Route::aliasMiddleware('role', RoleMiddleware::class);
 
 Route::get('/', [HomePageController::class, 'index'])->name('home');
+Route::get('/alltenders', [HomePageController::class, 'tenders'])->name('alltenders.index');
+Route::get('alltenders/{tender}/show', [HomePageController::class, 'show'])->name('alltenders.show');
+
 
 // مسار الإداريين
 Route::middleware(['auth', 'role:administrator'])->group(function () {
@@ -41,6 +44,7 @@ Route::middleware(['auth', 'role:company_member'])->group(function () {
 
 
 
+
 });
 
 // مسار أعضاء مزودي الخدمات
@@ -49,6 +53,11 @@ Route::middleware(['auth', 'role:vendor_member'])->group(function () {
     Route::get('/vendors/show', [VendorsController::class, 'show'])->name('vendors.show');
     Route::get('/vendors/edit', [VendorsController::class, 'edit'])->name('vendors.edit');
     Route::put('/vendors', [VendorsController::class, 'update'])->name('vendors.update');
+
+    //myBids
+    Route::get('/bid-requests/create/{tender_id}', [HomePageController::class, 'createBidRequest'])->name('bid_requests.create');
+    Route::post('/bid-requests', [HomePageController::class, 'storeBidRequest'])->name('bid_requests.store');
+
 
 });
 

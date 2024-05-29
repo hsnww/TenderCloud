@@ -2,8 +2,14 @@
 
 namespace App\Providers;
 
+use Carbon\Carbon;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\View;
+use App\View\Composers\DefaultComposer;
+
+
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -19,7 +25,13 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        // إعداد اللغة العربية كمحلية افتراضية لـ Carbon
+        Carbon::setLocale('ar');
+
 //         adding bootstrap pagination
-        \Illuminate\Pagination\Paginator::useBootstrap();
+        Paginator::useBootstrap();
+
+        View::composer(['default', 'showTender', 'tenders'], DefaultComposer::class);
+
     }
 }

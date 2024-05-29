@@ -69,7 +69,13 @@
 
     <div class="header-bottom">
         <img src="images/logo.png" alt="Logo" class="logo">
-        <nav class="nav">
+        <nav class="nav navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <a class="nav-link" href="{{ route('home') }}">الرئيسية</a>
             <a class="nav-link" href="{{ route('dashboard') }}">لوحة التحكم</a>
             <div class="dropdown">
                 <a class="nav-link dropdown-toggle" href="#">المشاريع</a>
@@ -80,8 +86,12 @@
                     <a class="dropdown-item" href="#">مشروع 4</a>
                 </div>
             </div>
+
             <a class="nav-link" href="#">دعوات التأهيل</a>
             <a class="nav-link" href="#">فواتيري</a>
+
+                </div>
+            </div>
         </nav>
 
         <div class="fav-btn">

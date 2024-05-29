@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <h1>Tenders</h1>
+        <h1>إدارة المناقصات</h1>
         <a href="{{ route('admin.tenders.create') }}" class="btn btn-primary mb-3">Create Tender</a>
         <table class="table">
             <thead>

@@ -4,7 +4,6 @@
     <div class="container">
         <div class="row">
             @include('components.alerts')
-            <!-- العمود الأول: نموذج البحث -->
             <div class="col-md-4 mb-4">
                 <div class="p-4 rounded-lg search-form text-white">
                     <h2 class="text-xl font-bold mb-4">البحث عن مشاريع</h2>
@@ -21,7 +20,7 @@
                             <label for="entity">الجهة</label>
                             <select id="entity" name="entity" class="form-control">
                                 @foreach($companies as $company)
-                                <option value="entity1">{{ $company->name }}</option>
+                                    <option value="entity1">{{ $company->name }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -29,7 +28,7 @@
                             <label for="activity">النشاط</label>
                             <select id="activity" name="activity" class="form-control">
                                 @foreach($activities as $activity)
-                                <option value="activity1">{{ $activity->name }}</option>
+                                    <option value="activity1">{{ $activity->name }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -37,7 +36,7 @@
                             <label for="project_type">نوع المشروع</label>
                             <select id="project_type" name="project_type" class="form-control">
                                 @foreach($projects_types as $project_type)
-                                <option value="type1">{{ $project_type->name }}</option>
+                                    <option value="type1">{{ $project_type->name }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -47,35 +46,60 @@
                     </form>
                 </div>
             </div>
-
-            <!-- العمود الثاني: ودجت الإشعارات وودجت المفضلة -->
             <div class="col-md-8 mb-4">
                 <div class="widget mb-4">
-                    <div class="widget-header d-flex justify-content-between align-items-center">
-                        <p class="h2">المناقصات الجديدة </p>
-                        <a href="{{ route('alltenders.index') }}" class="view-all">عرض الكل</a>
-                    </div>
-                    <div class="list-group">
-                        <!-- تكرار الإشعارات -->
-                        @foreach($tenders as $tender)
-                        <div class="list-group-item list-group-item-action d-flex align-items-center">
-                            <div>
-                                <div><h3>{{ $tender->name }}</h3></div>
-                                <p>{{ $tender->description }}</p>
-                                <p>{{ $tender->company? $tender->company->name : 'لا يوجد اسم'}}</p>
-                                <h4 class="badge bg-secondary">تاريخ طرح المناقصة : {{ $tender->submission_deadline }}</h4>
-                                 <p class="badge bg-danger">تاريخ فتح المظاريف: {{ $tender->opening_date }}</p>
-                                <div>
-                                    <a href="{{ route('alltenders.show', $tender->id)  }}" class="btn btn-warning vtn-sm">التفاصيل</a>
-                                </div>
-                            </div>
-                        </div>
-                        @endforeach
-                        <!-- تكرار العناصر الأخرى حسب الحاجة -->
-                    </div>
+            <h1>تفاصيل المناقصة</h1>
+             <table class="table">
+                <tr>
+                    <th>Name</th>
+                    <td>{{ $tender->name }}</td>
+                </tr>
+                 <tr>
+                     <th>Activity</th>
+                     <td>{{ $tender->activity->name }}</td>
+                 </tr>
+                 <tr>
+                     <th>Project Type</th>
+                     <td>{{ $tender->projectType->name }}</td>
+                 </tr>
+                 <tr>
+                 <th>Description</th>
+                 <td>{{ $tender->description }}</td>
+                 </tr>
+                 <tr>
+                 <th>Release Date</th>
+                 <td>{{ $tender->release_date }}</td>
+                 </tr>
+                 <tr>
+                 <th>Submission Deadline</th>
+                 <td>{{ $tender->submission_deadline }}</td>
+                 </tr>
+                 <tr>
+                 <th>Opening Date</th>
+                 <td>{{ $tender->opening_date }}</td>
+                 </tr>
+                 <tr>
+                 <th>Document Fee</th>
+                 <td>{{ $tender->document_fee }}</td>
+                 </tr>
+                <tr>
+                    <th>Status</th>
+                    <td>{{ $tender->status }}</td>
+                </tr>
+            </table>
+            <a href="{{ route('alltenders.index') }}" class="btn btn-primary">الرجوع إلى قائمة المناقصات</a>
+                    @php
+                        $vendorIds = auth()->user()->vendors->pluck('id')->toArray();
+                        $hasBidRequest = $tender->bidRequests()->whereIn('vendor_id', $vendorIds)->exists();
+                    @endphp
+                    @if ($hasBidRequest)
+                        <button class="btn btn-success" disabled>تم الشراء</button>
+                    @else
+                        <a href="{{ route('bid_requests.create', $tender->id) }}" class="btn btn-warning">طلب الدخول إلى المناقصة</a>
+
+                    @endif
                 </div>
             </div>
-
-        </div>
+    </div>
     </div>
 @endsection

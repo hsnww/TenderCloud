@@ -26,4 +26,20 @@ class Tender extends Model
         return $this->belongsTo(Company::class);
     }
 
+    public function activity()
+    {
+        return $this->belongsTo(Activity::class);
+    }
+
+    public function projectType()
+    {
+        return $this->belongsTo(ProjectType::class);
+    }
+
+    public function bidRequests()
+    {
+        return $this->hasMany(BidRequest::class);
+    }
+
+
 }

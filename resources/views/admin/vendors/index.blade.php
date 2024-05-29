@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <h1>Vendors</h1>
+        <h1>إدارة مزودو الخدمات</h1>
         <a href="{{ route('admin.vendors.create') }}" class="btn btn-primary mb-3">Create Vendor</a>
         <table class="table">
             <thead>

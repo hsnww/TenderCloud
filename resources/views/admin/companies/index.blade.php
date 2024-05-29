@@ -4,7 +4,7 @@
     <div class="container">
         <row>
             <div class="col-md-12">
-                <h1>Companies</h1>
+                <h1>الشركات</h1>
                 <a href="{{ route('admin.companies.create') }}" class="btn btn-primary mb-3">Create A Company</a>
                 <table class="table table-responsive">
                     <thead>
