@@ -1,0 +1,267 @@
+/* stylelint-disable selector-list-comma-newline-after */
+body {
+    font-family: 'Cairo', sans-serif;
+    margin: 0 6%;
+    border: 1px solid #dcdcdc; /* إطار رقيق بلون رمادي */
+    font-size: 14px; /* حجم الخط الأساسي للقالب */
+    line-height: 2.2; /* المسافة بين السطور */
+}
+
+/* التحكم في خطوط العناوين */
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Cairo", sans-serif;
+    font-weight: bold;
+    line-height: 1.4; /* المسافة بين السطور للعناوين */
+}
+
+.blog-header {
+    background-color: #EB4E38;
+  line-height: 1;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.blog-header-logo {
+  font-family: Amiri, Georgia, "Times New Roman", serif;
+  font-size: 2.25rem;
+}
+
+.blog-header-logo:hover {
+  text-decoration: none;
+}
+
+.display-4 {
+  font-size: 2.5rem;
+}
+@media (min-width: 768px) {
+  .display-4 {
+    font-size: 3rem;
+  }
+}
+
+.nav-scroller {
+  position: relative;
+  z-index: 2;
+  height: 2.75rem;
+  overflow-y: hidden;
+}
+
+.nav-scroller .nav {
+  display: flex;
+  flex-wrap: nowrap;
+  padding-bottom: 1rem;
+  margin-top: -1px;
+  overflow-x: auto;
+  text-align: center;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+}
+
+.nav-scroller .nav-link {
+  padding-top: .75rem;
+  padding-bottom: .75rem;
+  font-size: .875rem;
+}
+
+.card-img-right {
+  height: 100%;
+  border-radius: 3px 0 0 3px;
+}
+
+.flex-auto {
+  flex: 0 0 auto;
+}
+
+.h-250 { height: 250px; }
+@media (min-width: 768px) {
+  .h-md-250 { height: 250px; }
+}
+
+/* Pagination */
+.blog-pagination {
+  margin-bottom: 4rem;
+}
+.blog-pagination > .btn {
+  border-radius: 2rem;
+}
+
+/*
+ * Blog posts
+ */
+.blog-post {
+  margin-bottom: 4rem;
+}
+.blog-post-title {
+  margin-bottom: .25rem;
+  font-size: 2.5rem;
+}
+.blog-post-meta {
+  margin-bottom: 1.25rem;
+  color: #727272;
+}
+
+/*
+ * Footer
+ */
+/* blog.css */
+
+.custom-bg-danger {
+    background-color: #EB4E38 !important;
+}
+
+.social-icon {
+    text-decoration: none;
+}
+
+.social-icon i {
+    background-color: #FF6A54;
+    color: white;
+}
+
+
+/* My add code  */
+
+/* تنسيقات الأزرار */
+.btn-white {
+    color: #ffffff;
+    background-color: #FA6F5B;
+    border: 1px solid #ffffff;
+}
+
+.btn-white:hover {
+    color: #000000;
+    background-color: #122D34;
+}
+
+/* تنسيقات زيادة المسافة بين الأزرار وجانب الهيدر */
+.header-buttons .btn {
+    margin-left: 10px; /* يمكنك تعديل القيمة حسب الحاجة */
+}
+
+/* لتطبيق التنسيق فقط على الأزرار في الهيدر */
+.header-buttons {
+    display: flex;
+    justify-content: flex-end; /* محاذاة الأزرار إلى اليمين */
+    gap: 10px; /* يمكنك تعديل القيمة حسب الحاجة */
+}
+
+/* تعديل تأثير التحويم على الأزرار لتصبح رمادية */
+.header-buttons .btn-white:hover {
+    background-color: #ffffff; /* لون رمادي */
+    color: #EB4E38; /* لون النص أبيض */
+}
+
+.navbar-nav .nav-item {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-nav .nav-item::before {
+    content: '';
+    display: inline-block;
+    width: 10px; /* قطر النقطة */
+    height: 10px; /* قطر النقطة */
+    background-color: #EB4E38; /* اللون الأحمر المطلوب */
+    border-radius: 50%; /* لجعلها دائرية */
+    margin-right: 8px; /* مسافة بين النقطة والنص */
+}
+/* تنسيق حقول البحث */
+.search-form .form-control {
+    border-radius: 1rem; /* انحناء أكثر للزوايا */
+    border: 1px solid #FFFFFF; /* إطار باللون الأبيض */
+    background-color: #E55642; /* خلفية الحقل باللون E55642 */
+    color: #FFFFFF; /* لون الخط داخل الحقل باللون الأبيض */
+    font-size: 0.65rem;
+
+}
+
+/* التأكد من أن لون النص داخل الحقول البيضاء */
+.search-form .form-control::placeholder {
+    color: #FFFFFF; /* لون النص في placeholder */
+
+}
+/* تنسيق زر التنفيذ */
+.search-button {
+    background-color: #F07665;
+    border: 2px solid #F07665;
+    transition: all 0.3s ease;
+    width: 100%;
+    font-size: 0.95rem;
+    color: #FFFFFF; /* اللون الافتراضي للنص */
+    border-radius: 1rem; /* انحناء أكثر للزوايا */
+
+}
+
+/* تغيير لون الزر والنص عند الإشارة إليه */
+.search-button:hover {
+    background-color: #FFFFFF;
+    color: #F07665; /* تغيير لون النص إلى الأحمر عند الإشارة */
+}
+.search-form {
+    background-color: #ED5E4A;
+    border-radius: 2.5rem;
+}
+
+.search-input {
+    background-color: #E55642;
+    border: 1px solid #FFFFFF;
+    color: #FFFFFF;
+    font-size: var(--font-size-base);
+}
+
+.search-input::placeholder {
+    color: #FFFFFF;
+    /* لون النص في placeholder */
+}
+
+.search-select {
+    background-color: #E55642;
+    border: 1px solid #FFFFFF;
+    color: #FFFFFF;
+    font-size: var(--font-size-base);
+}
+
+.search-select::placeholder {
+    color: #FFFFFF;
+    /* لون النص في placeholder */
+}
+
+.search-button {
+    background-color: #F07665;
+    border: 2px solid #F07665;
+    transition: all 0.3s ease;
+    width: 100%;
+    /* جعل الزر يأخذ عرض القوائم المنسدلة بالكامل */
+    font-size: var(--font-size-base);
+}
+
+.search-button:hover {
+    background-color: #FFFFFF;
+    color: #F07665;
+}
+/* إضافة مسافة بين الأيقونة والكلمة */
+.dropdown-item i {
+    margin-right: 8px; /* تعديل المسافة حسب الحاجة */
+}
+
+.favorite-btn:hover {
+    background-color: #EB4E38; /* اللون الأحمر عند التحويم */
+    color: #ffffff; /* لون النص الأبيض عند التحويم */
+    border-color: #EB4E38; /* تغيير لون الحدود إلى الأحمر */
+}
+
+.pagination .page-link {
+    color: #EB4E38; /* اللون الأحمر */
+}
+
+.pagination .page-link:hover {
+    color: #EB4E38; /* اللون الأحمر عند التحويم */
+}
+
+.pagination .page-item.active .page-link {
+    background-color: #EB4E38; /* اللون الأحمر للخلفية عند التفعيل */
+    border-color: #EB4E38; /* لون الحدود عند التفعيل */
+}
+
+.pagination .page-item.disabled .page-link {
+    color: #EB4E38; /* اللون الأحمر للعناصر المعطلة */
+}

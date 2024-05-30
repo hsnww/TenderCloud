@@ -22,9 +22,19 @@ class BidRequest extends Model
         return $this->belongsTo(Company::class);
     }
 
-    public function project()
+
+    // علاقة مع نموذج Tender
+    public function tender()
     {
-        return $this->belongsTo(Tender::class, 'project_id');
+        return $this->belongsTo(Tender::class);
     }
+
+    // علاقة مع نموذج Vendor
+    public function vendor()
+    {
+        return $this->belongsTo(Vendor::class);
+    }
+
+
 
 }

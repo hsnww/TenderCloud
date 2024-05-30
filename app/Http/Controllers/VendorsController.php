@@ -29,7 +29,6 @@ class VendorsController extends Controller
 
         return view('vendors.index', compact('vendor'));
     }
-
     public function edit()
     {
         $user = Auth::user();
@@ -41,7 +40,6 @@ class VendorsController extends Controller
 
         return view('vendors.edit', compact('vendor'));
     }
-
     public function update(Request $request)
     {
         $user = Auth::user();
@@ -67,4 +65,19 @@ class VendorsController extends Controller
 
         return redirect()->route('vendors.show')->with('success', 'Vendor updated successfully');
     }
+
+    public function showMyTenders(Vendor $vendor)
+    {
+        // تأكد من أن المستخدم الحالي هو الفندر
+        if (!Auth::user()->vendors->contains($vendor)) {
+            abort(403, 'Unauthorized action.');
+        }
+
+        // استرجاع المناقصات التي قام الفندر بإرسال طلب المشاركة فيها
+        $tenders = $vendor->bidRequests()->with('tender')->get()->pluck('tender');
+
+        return view('vendors.tenders', compact('vendor', 'tenders'));
+    }
+
+
 }

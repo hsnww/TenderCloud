@@ -19,5 +19,10 @@ class Company extends Model
         return $this->hasMany(Tender::class);
     }
 
+    public function bidRequests()
+    {
+        return $this->hasMany(BidRequest::class);
+    }
+
 
 }

@@ -72,8 +72,8 @@
                 <a class="nav-link" href="{{ url('/companies') }}"><i class="fas fa-cogs"></i> تحكم الشركات</a>
                 <a class="nav-link" href="{{ route('companies.edit') }}"><i class="fas fa-building"></i> إعدادات حساب الشركة</a>
 {{--                <a class="nav-link" href="#"><i class="fas fa-credit-card"></i> الباقة والدفع</a>--}}
-                <a class="nav-link" href="{{ route('tenders.index') }}"><i class="fas fa-file-alt"></i> المناقصات </a>
-                <a class="nav-link" href="#"><i class="fas fa-file-invoice"></i> عروض مزودي الخدمات</a>
+                <a class="nav-link" href="{{ route('companies.tenders') }}"><i class="fas fa-file-alt"></i> المناقصات </a>
+                <a class="nav-link" href="{{ route('companies.tenders.bids') }}"><i class="fas fa-file-invoice"></i> عروض مزودي الخدمات</a>
 {{--                <a class="nav-link" href="#"><i class="fas fa-file-invoice"></i> الفواتير</a>--}}
                 <a class="nav-link" href="#"><i class="fas fa-users"></i> المسؤولين</a>
                 <hr class="text-danger">
@@ -83,7 +83,7 @@
                 @role('vendor_member')
                 <a class="nav-link" href="{{ url('/vendors') }}"><i class="fas fa-cogs"></i>تحكم مزود الخدمة</a>
                 <a class="nav-link" href="{{ route('vendors.edit') }}"><i class="fas fa-building"></i> إعدادات حساب الشركة</a>
-                <a class="nav-link" href="#"><i class="fas fa-file-alt"></i> المناقصات</a>
+                <a class="nav-link" href="{{ route('vendors.my_tenders', ['vendor' => $vendor->id]) }}"><i class="fas fa-file-alt"></i> المناقصات</a>
                 <a class="nav-link" href="#"><i class="fas fa-credit-card"></i> الباقة والدفع</a>
                 <a class="nav-link" href="#"><i class="fas fa-envelope-open"></i> دعوات التأهيل</a>
                 <a class="nav-link" href="#"><i class="fas fa-heart"></i> المفضلة</a>

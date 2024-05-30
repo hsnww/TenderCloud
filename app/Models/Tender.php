@@ -35,7 +35,6 @@ class Tender extends Model
     {
         return $this->belongsTo(ProjectType::class);
     }
-
     public function bidRequests()
     {
         return $this->hasMany(BidRequest::class);

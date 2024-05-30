@@ -44,7 +44,7 @@ class HomePageController extends Controller
         $vendor = Auth::user()->vendors()->firstOrFail();
         $vendor_id = $vendor->id;
 
-        return view('bid_requests', compact('tender', 'company', 'vendor_id'));
+        return view('bid_requests', compact('tender', 'company', 'vendor'));
     }
 
     public function storeBidRequest(Request $request)
@@ -74,7 +74,7 @@ class HomePageController extends Controller
             'amount' => $request->amount,
         ]);
 
-        return redirect()->route('alltenders.show', $request->tender_id)->with('success', 'تم تقديم العطاء بنجاح');
+        return redirect()->route('tenders.show', $request->tender_id)->with('success', 'تم تقديم العطاء بنجاح');
     }
 
     /**
@@ -107,8 +107,5 @@ class HomePageController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
-    {
-        //
-    }
+
 }

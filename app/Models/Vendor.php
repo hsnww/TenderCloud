@@ -14,4 +14,10 @@ protected $fillable = ['name', 'city', 'address', 'industry', 'email', 'phone', 
         return $this->belongsToMany(User::class, 'user_company_vendor');
     }
 
+    // علاقة مع نموذج BidRequest
+    public function bidRequests()
+    {
+        return $this->hasMany(BidRequest::class);
+    }
+
 }

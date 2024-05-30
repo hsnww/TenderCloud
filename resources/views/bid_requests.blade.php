@@ -28,7 +28,7 @@
             <p><strong>الجوال:</strong> {{ $company->mobile }}</p>
         </div>
         <div class="col col-lg-6">
-        <form action="{{ route('bid_requests.store') }}" method="POST">
+        <form action="{{ route('vendors.bid_requests.store') }}" method="POST">
             @csrf
             <div class="form-group m-2">
                 <label for="description">وصف العطاء</label>
