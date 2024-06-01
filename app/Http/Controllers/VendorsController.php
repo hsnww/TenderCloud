@@ -74,9 +74,9 @@ class VendorsController extends Controller
         }
 
         // استرجاع المناقصات التي قام الفندر بإرسال طلب المشاركة فيها
-        $tenders = $vendor->bidRequests()->with('tender')->get()->pluck('tender');
+        $my_tenders = $vendor->bidRequests()->with('tender')->get()->pluck('tender');
 
-        return view('vendors.tenders', compact('vendor', 'tenders'));
+        return view('vendors.tenders', compact('vendor', 'my_tenders'));
     }
 
 

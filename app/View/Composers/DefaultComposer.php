@@ -14,9 +14,9 @@ class DefaultComposer
 {
     public function compose(View $view)
     {
-        $tenders = Tender::OrderBy('created_at')->take(5)->get();
-        $companies = Company::OrderBy('created_at')->take(10)->get();
-        $vendors = Vendor::OrderBy('created_at')->take(10)->get();
+        $tenders = Tender::OrderBy('created_at')->paginate(5);
+        $companies = Company::OrderBy('created_at')->paginate(10);
+        $vendors = Vendor::OrderBy('created_at')->paginate(10);
         $activities = Activity::all();
         $projects_types = ProjectType::all();
         $url = null;

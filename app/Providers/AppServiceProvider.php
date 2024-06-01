@@ -31,7 +31,7 @@ class AppServiceProvider extends ServiceProvider
 //         adding bootstrap pagination
         Paginator::useBootstrap();
 
-        View::composer(['default', 'showTender', 'tenders'], DefaultComposer::class);
+        View::composer(['default','results', 'profile.*', 'showTender',  'admin', 'admin.*', 'vendors', 'vendors.*', 'tenders', 'tenders.*', 'companies.*'], DefaultComposer::class);
 
     }
 }

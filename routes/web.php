@@ -18,7 +18,8 @@ Route::aliasMiddleware('role', RoleMiddleware::class);
 
 Route::get('/', [HomePageController::class, 'index'])->name('home');
 Route::get('/tenders', [HomePageController::class, 'tenders'])->name('tenders');
-Route::get('tenders/{tender}/show', [HomePageController::class, 'show'])->name('tenders.show');
+Route::get('tenders/{tender}/show', [HomePageController::class, 'show'])->middleware('auth')->name('tenders.show');
+Route::post('/tenders/results', [HomePageController::class, 'searchTender'])->name('tenders.search');
 
 // مسار أعضاء الشركات
 Route::prefix('companies')->middleware(['auth', 'role:company_member'])->name('companies.')->group(function() {
@@ -67,7 +68,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-    Route::prefix('admin')->middleware(['auth', 'role:administrator'])->name('admin.')->group(function() {
+Route::prefix('admin')->middleware(['auth', 'role:administrator'])->name('admin.')->group(function() {
 
     Route::get('/', [AdminController::class, 'index'])->name('admin.index');
     Route::get('/users', [AdminUsersController::class, 'index'])->name('users.index');

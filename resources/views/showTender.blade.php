@@ -41,6 +41,7 @@
                 </tr>
             </table>
             <a href="{{ route('tenders') }}" class="btn btn-primary">الرجوع إلى قائمة المناقصات</a>
+             @if(auth()->user()->hasRole('vendor_member'))
                     @php
                         $vendorIds = auth()->user()->vendors->pluck('id')->toArray();
                         $hasBidRequest = $tender->bidRequests()->whereIn('vendor_id', $vendorIds)->exists();
@@ -49,7 +50,9 @@
                         <button class="btn btn-success" disabled>تم الشراء</button>
                     @else
                         <a href="{{ route('vendors.bid_requests.create', $tender->id) }}" class="btn btn-warning">طلب الدخول إلى المناقصة</a>
-
                     @endif
+                    @else
+                 <button class="btn btn-warning" disabled>يمكن لممثلي مزودي الخدمات فقط الدخول في المناقصات</button>
+                 @endif
 
 @endsection

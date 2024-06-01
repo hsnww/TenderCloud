@@ -5,14 +5,17 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Company;
 use App\Models\User;
+use App\Models\Vendor;
+use App\Models\Tender;
+use App\Models\BidRequest;
 use Illuminate\Http\Request;
 
 class CompaniesController extends Controller
 {
     public function index()
     {
-        $companies = Company::paginate(5);
-        return view('admin.companies.index', compact('companies'));
+//        $companies = Company::paginate(5);
+        return view('admin.companies.index');
     }
     public function create()
     {

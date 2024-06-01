@@ -107,5 +107,44 @@ class HomePageController extends Controller
     /**
      * Remove the specified resource from storage.
      */
+    public function searchTender(Request $request)
+    {
+        // تحقق من تعبئة حقل واحد على الأقل
+        $request->validate([
+            'project_name' => 'required_without_all:project_number,entity,activity,project_type',
+            'project_number' => 'required_without_all:project_name,entity,activity,project_type',
+            'entity' => 'required_without_all:project_name,project_number,activity,project_type',
+            'activity' => 'required_without_all:project_name,project_number,entity,project_type',
+            'project_type' => 'required_without_all:project_name,project_number,entity,activity',
+        ], [
+            'required_without_all' => 'يرجى تعبئة حقل واحد على الأقل للبحث.'
+        ]);
+
+        $query = Tender::query();
+
+        if ($request->filled('project_name')) {
+            $query->where('name', 'like', '%' . $request->input('project_name') . '%');
+        }
+
+        if ($request->filled('project_number')) {
+            $query->where('id', $request->input('project_number'));
+        }
+
+        if ($request->filled('entity')) {
+            $query->where('company_id', $request->input('entity'));
+        }
+
+        if ($request->filled('activity')) {
+            $query->where('activity_id', $request->input('activity'));
+        }
+
+        if ($request->filled('project_type')) {
+            $query->where('project_type_id', $request->input('project_type'));
+        }
+
+        $tenders_results = $query->get();
+
+        return view('results', compact('tenders_results'));
+    }
 
 }
